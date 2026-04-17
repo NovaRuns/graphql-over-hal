@@ -1,0 +1,35 @@
+type Query {
+    students: [Student!]!
+    student(id: Int!): Student
+    teachers: [Teacher!]!
+    teacher(id: Int!): Teacher
+    subjects: [Subject!]!
+    subject(id: Int!): Subject
+    grades(studentId: Int = null): [Grade!]!
+}
+
+type Student {
+    id: Int!
+    name: String!
+}
+
+type Teacher {
+    id: Int!
+    name: String!
+}
+
+type Subject {
+    id: Int!
+    name: String!
+}
+
+type Grade {
+    student_id: Int!
+    teacher_id: Int!
+    subject_id: Int!
+    grade: Int!
+    student: Student!
+    teacher: Teacher!
+    subject: Subject!
+    text: String
+}

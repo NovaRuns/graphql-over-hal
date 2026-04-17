@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  graphql-server:
+    depends_on:
+      - hal-server
+    build: ./graphql-server
+    environment:
+      - HAL_SERVER=http://hal-server:8080
+    ports:
+      - "8090:8080"
+
+  hal-server:
+    build: ./hal-server
+    ports:
+      - "8080:8080"
